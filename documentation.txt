@@ -1,0 +1,257 @@
+# AI_author
+This projects implements an AI driven author to any subject. Write books or course scripts with the power of AI.
+
+Requirements for the project:
+
+Information sources:
+- Papers
+- Guides
+- Interviews
+- ChatGPT
+- Books/e-books
+
+Database:
+- Vector database, e.g. Pinecone
+
+User interface:
+- Input topic
+- Input table of contents (chapters)
+    - In the form of a dictionary?
+- Script interview to retrieve all relevant information for the book
+- UX/UI:
+    - Angabe der Quellen irgendwo in einem Feld oder/und hochladen von Dokumenten
+        - Websuche
+        - PDF
+        - Studien etc.
+    - inhaltsangabe vorschlagen oder selber neu erstellen
+    - per + auf ein Schlagwort(eines Abschnitts) unterabschnitte erzeugen/voerschlagen lassen (drop Down Menü)
+    - Anzahl der Wörter vorschlagen
+    - Detailtiefe des Textes vorgeben
+        - Leserlevel angeben (Leihe,Fortgeschritten, Experte)
+
+Output:
+- Json format
+- Latex format
+
+Content:
+- Adjustable writing style
+- Definable target group
+- Type of book, non-fiction, article, poetry, novel, script
+- Creation of table of contents
+- Content is generated based on the table of contents
+- Each section can become more detailed as needed
+- Detailed research can also be done through web searches
+    - Academic articles
+    - Studies
+    - Books
+    - Articles
+    - Identify important sources
+    - Use online libraries
+    - Interview experts
+    - Use search engines
+    - Use social media
+    - Evaluate and critically assess sources
+    - Organize and document results
+
+Process:
+- Create a table of contents with bullet points
+- Store them in a list
+- For each bullet point, create a new table of contents with bullet points
+- Store them in sublists
+- For each bullet point in all new sublists, create a new table of contents
+- Store those bullet points in sub-sublists
+
+Additional requirements: Depending on the specific requirements of the project, the following requirements could also be implemented:
+
+Integration of additional information sources: If it is necessary to integrate additional information sources to ensure a comprehensive understanding of the subject, appropriate mechanisms for integrating data sources such as public records or databases should be made available. Connecting to news or social media platforms may also be useful.
+
+User-friendly interface: The software could provide a user-friendly interface to facilitate navigation, compilation, and monitoring of generated content. This can increase user-friendliness and improve efficiency in content creation and revision.
+
+Control and protection mechanisms: If content creation is performed by multiple individuals, appropriate protection mechanisms are needed to prevent accidental or intentional deletion or manipulation of data. It is also important that users have adequate control over the generated content, for example, to remove unwanted information or incorrect sources.
+
+Support for multiple output formats: One possibility is that the system can automatically support multiple output formats, such as HTML, epub, or PDF. This makes it easier for users to read, share and export the generated content in various forms.
+
+Language support: Software for generating text content should allow writing, editing and generating text in various languages.
+
+Integration of AI technology for text checking: In addition to generative AI technology, the software could implement other AI technologies to check the grammar, syntax, spelling, and other linguistic aspects of the generated text to improve the quality and accuracy of the output text.
+
+Faktencheck: AI verwenden um Fakten des im Text geschriebenen Inhalte zu überprüfen.
+
+Extensibility: The software should be designed to be easily adapted and extended to new insights or changes in the theme. The extensibility of the software should also include the integration of new data sources and AI technologies.
+
+V1:
+- Information source: ChatGPT
+- Information database: None
+- Work database: Nested dictionaries
+- Backup: Json format
+- Indexing for ChatGPT to systematically process all bullet points
+- Marking a keyword in the dictionary as answered: false/true
+
+Writing idea:
+- Write a non-fiction book in the form of a hero story
+
+Ein SaaS-Backend für dieses Projekt könnte wie folgt entworfen werden:
+
+Mikroservices-Architektur: Das Backend kann nach dem Muster der Mikroservices-Architektur entworfen werden, bei der die verschiedenen Elemente des Systems als kleine, unabhängige und skalierbare Services implementiert werden.
+
+API Gateway: Ein zentrales API Gateway kann verwendet werden, um die Backend-Services über einen einzelnen Endpunkt zu veröffentlichen. Dies kann die Integration unterschiedlicher Clients vereinfachen und die Skalierbarkeit des Systems verbessern.
+
+Containerisierung: Jeder Mikroservice kann mithilfe von Docker containerisiert werden, was eine einfache Bereitstellung und Skalierung ermöglicht.
+
+Orchestrierung: Containerorchestrierung mit Kubernetes oder ähnlichen Tools kann zur Verwaltung von Bereitstellung, Skalierung und automatischem Failover der containerisierten Mikroservices verwendet werden.
+
+Autorisierung und Authentifizierung: Ein sicheres Authentifizierungs- und Autorisierungsmechanismus wie OAuth kann implementiert werden, um sicherzustellen, dass nur autorisierte Benutzer auf die Backend-Services zugreifen können.
+
+Datenbank: Das Backend kann eine NoSQL-Datenbank wie MongoDB verwenden, um die Informationsquellen und Arbeitsdatenbanken zu speichern, da sie eine flexible Schema-Struktur und hohe Skalierbarkeit bieten.
+
+Caching: Caching mit Redis oder ähnlichen Tools kann implementiert werden, um die Leistung der Backend-Services durch Reduzierung von Datenbankabfragen und Erhöhung der Antwortzeiten zu verbessern.
+
+Überwachung: Überwachungstools wie Prometheus oder Grafana können zur Bereitstellung von Echtzeit-Metriken und -Analysen für die Backend-Services verwendet werden.
+
+Bereitstellungsoptionen: Das Backend kann auf Cloud-basierten Plattformen wie Amazon Web Services, Google Cloud Platform oder Microsoft Azure bereitgestellt werden, die verschiedene Optionen für Skalierbarkeit, Zuverlässigkeit und Kostenoptimierung bieten.
+
+Insgesamt würde eine gut gestaltete Backend-Architektur für dieses Projekt die Skalierbarkeit, Verfügbarkeit, Sicherheit und Erweiterbarkeit priorisieren. Mit angemessener Handhabung von Daten, Caching und Verhinderung von Datenverlust wäre dieses System bereit, große Anforderungen zu bewältigen und robust zu sein.
+
+Die genauen Services, die implementiert werden müssen, hängen von den Anforderungen des Projekts ab.
+Hier sind jedoch einige mögliche Services, die in einem Backend für dieses Projekt enthalten sein könnten:
+
+User-Authentifizierungsservice: Ein Service, der die Benutzeridentität überprüft und sicherstellt, dass nur autorisierte Benutzer auf das Backend zugreifen können.
+
+Inhaltsverwaltungsservice: Ein Service, der die Inhaltsverwaltungsfunktionen bereitstellt, 
+z.B. das Erstellen und Speichern von Buchkapiteln und die Überprüfung der Vollständigkeit der Inhalte.
+
+Textgenerierungsservice: Ein Service, der aufgrund der vom Benutzer bereitgestellten Informationen und Themen Textinhalte generiert.
+
+Informationsquellen-Service: Ein Service, der auf eine interne oder externe Datenquelle zugreift, 
+um Informationen zu sammeln, die für die Textgenerierung benötigt werden.
+
+Nutzerschnittstellen-Service: Ein Service, der eine API bereitstellt, über die Benutzer auf das Backend zugreifen 
+und die verschiedenen Funktionen nutzen können.
+
+Bewertungs-Service: Ein Service, der Inhalte auf Qualität und Relevanz überprüft und basierend auf diesen Kriterien Bewertungen abgibt.
+
+Backup-Service: Ein Service, der regelmäßig Backups des Datenbankinhalts erstellt, 
+um die Wiederherstellbarkeit und Verfügbarkeit der Daten im Falle eines Serverabsturzes oder Datenverlusts zu gewährleisten.
+
+Caching-Service: Ein Service, der Informationen im Arbeitsspeicher speichert, 
+um die Geschwindigkeit und die Verfügbarkeit bestimmter Inhalte zu verbessern.
+
+Analytics-Service: Ein Service, der Analyse- und Berichtsfunktionen bereitstellt, 
+um wichtige Einsichten und Trends in Bezug auf die Nutzung und Leistung des Backends und der generierten Textinhalte zu liefern.
+
+Integrations-Service: Ein Service, der verschiedene Integrationen mit anderen Systemen 
+oder Plattformen wie sozialen Medien oder E-Book-Bereitstellungsdiensten bereitstellt.
+
+Die genaue Struktur und Organisation der benötigten Dateien hängt von der Technologie ab, 
+die für die Implementierung der Backend-Services verwendet wird. Hier ist jedoch eine allgemeine mögliche Dateistruktur:
+
+Programmiersprache: python
+
+root/
+| - api/
+|   | - user-authentication/
+|   |    | - user_authentication_service.py
+|   |    | - user_authentication_config.py
+|   | - content-management/
+|   |    | - content_management_service.py
+|   |    | - content_management_config.py
+|   | - text-generation/
+|   |    | - text_generation_service.py
+|   |    | - text_generation_config.py
+|   | - information-source/
+|   |    | - information_source_service.py
+|   |    | - information_source_config.py
+|   | - user-interface/
+|   |    | - user_interface_service.py
+|   |    | - user_interface_config.py
+|   | - rating/
+|   |    | - rating_service.py
+|   |    | - rating_config.py
+| - config/
+|   | - server_config.py
+|   | - database_config.py
+|   | - auth_config.py
+|   | - cache_config.py
+| - utils/
+|   | - error_handler.py
+|   | - logger.py
+| - backup/
+|   | - database_backup_service.py
+|   | - database_backup_config.py
+| - analytics/
+|   | - analytics_service.py
+|   | - analytics_config.py
+| - integrations/
+|   | - social_media_integration_service.py
+|   | - social_media_integration_config.py
+| - requirements.txt
+| - server.py
+
+Um mehrere Benutzer auf Ihrem Server zu unterstützen, müssen Sie ein geeignetes Benutzersystem implementieren. Hier sind einige allgemeine Schritte, die Sie durchführen könnten:
+
+Implementieren Sie eine Benutzerdatenbank: Sie können verschiedene Arten von Datenbanksystemen wie MySQL oder MongoDB verwenden, um die Benutzerdaten zu speichern. Die Benutzerdatenbank sollte Informationen wie Benutzernamen, E-Mail-Adressen und Passwörter enthalten.
+
+Implementieren Sie eine Schnittstelle für die Registrierung und den Login von Benutzern: Sobald Sie eine Benutzerdatenbank implementiert haben, müssen Sie eine Schnittstelle bereitstellen, die es neuen Benutzern ermöglicht, sich für Ihr System zu registrieren, und vorhandenen Benutzern, sich anzumelden.
+
+Authentifizieren Sie Benutzer und generieren Sie JWTs: Wenn ein Benutzer sich auf Ihrem Server anmeldet, müssen Sie ihn authentifizieren und ihm Zugriff auf die für ihn zugewiesenen Ressourcen geben. Dazu können Sie JWTs (JSON Web Tokens) verwenden, die als sichere Möglichkeit dienen, Informationen zwischen Benutzer und Server zu übertragen. Diese Tokens sollten so spezifisch wie möglich für den jeweiligen Benutzer sein, um sicherzustellen, dass er nur auf die für ihn freigegebenen Ressourcen zugreifen kann.
+
+Stellen Sie geschützte Ressourcen bereit: Sobald ein Benutzer erfolgreich angemeldet und authentifiziert ist, können Sie ihm bestimmte Ressourcen zur Verfügung stellen (z.B. bestimmte Endpunkte auf der API oder geschützte Bereiche auf einer Website).
+
+Ein Benutzer kann normalerweise die Informationen zu seiner Registrierung und Anmeldung über eine Benutzeroberfläche wie ein Webformular eingeben. Anschließend wird eine Anfrage an den Server gesendet, um die Registrierungs- oder Anmeldeinformationen zu verarbeiten. Sobald der Benutzer authentifiziert ist, können ihm Informationen wie Zugriffs-Token oder geschützte Ressourcen zurückgegeben werden.
+
+
+
+
+Frontend
+
+Gerne! Anbei ein Konzept für das Design des Benutzerinterfaces:
+
+Funktionalität und Navigation: Das Interface soll simpel und leicht zugänglich sein, 
+da der Hauptfokus auf der von der AI für den Nutzer generierten Inhalte liegt. Der Nutzer soll in der Lage sein, eine Suchanfrage zu stellen und relevante Ergebnisse erhalten. Folgende Elemente sind wichtig:
+
+Suchleiste: Die Suchleiste stellt das Zentrum der Benutzerführung dar. 
+Der Nutzer kann hier seine Fragestellung eingeben und erhält entsprechende Antworten.
+
+Filter: Ermöglicht dem Nutzer, seine Suche zu verfeinern. 
+Beispielsweise kann der Nutzer einstellen, ob er präferiert, dass die von der AI generierten Inhalte für ein bestimmtes 
+Themengebiet optimiert werden sollen.
+
+Inhaltsbereich: Der Bereich, wo die generierten Inhalte angezeigt werden.
+ Hier sind auch Navigationselemente vorhanden, um den Nutzer beispielsweise zu vorhergehendem oder weiterführendem Inhalt zu führen.
+
+Feedback: Ermöglicht dem Nutzer, Feedback zu geben, um die Qualität der von der AI generierten Inhalte zu verbessern.
+
+Design: Das Design wird minimalistisch gehalten, um den Fokus auf die generierten Inhalte zu setzen. 
+Ein hochwertiges und professionelles Design soll Vertrauen vermitteln. Folgende Designelemente sind wichtig:
+
+Farben: Das Farbspektrum wird begrenzt, um Aufmerksamkeit auf die Inhalte zu lenken. 
+Ein sauberes Weiß mit Akzentfarben für bestimmte Schaltflächen kann beispielsweise eingesetzt werden.
+
+Schriften: Schriften müssen einfach und leicht lesbar sein. 
+Eine Serifenschrift wie Times New Roman kann beispielsweise als Haupt schriftart verwendet werden, um Seriosität darzustellen.
+
+Symbole: Einfache Symbole, die die Funktionalität direkt verdeutlichen, 
+bieten eine klare Orientierung z.B. eine Lupe für die Suchleiste.
+
+Bilder: Bilder können unterstützend eingesetzt werden, um den generierten 
+Inhalt zu illustrieren oder zu untermauern.
+
+Mobile Anwendung: Da die mobile Nutzung von Suchanfragen immer weiter zunimmt, 
+sollte ein reaktionsfähiges Design für die mobile Nutzung vorhanden sein. 
+Es soll einfach und schnell zu navigieren sein. Das Design wird an die Verwendung und Größe von mobilen Geräten angepasst. 
+Entsprechend wird auch die Funktionalität skaliert, z.B. durch größer dargestellte Schaltflächen und eine vereinfachte Navigation.
+
+Das Frontend kann als separate Anwendung implementiert werden, 
+die die APIs des Backends nutzt, um Daten anzufordern oder zu aktualisieren. 
+Hier sind einige Schritte, die Sie befolgen können, um das Frontend zu implementieren:
+
+1. Wählen Sie eine geeignete Technologie für das Frontend, wie z.B. Angular, React oder Vue.js.
+2. Erstellen Sie die Ordnerstruktur für das Frontend-Projekt, z.B. mit Ordner für Komponenten, Services und Router.
+3. Nutzen Sie einen Paket-Manager wie npm oder yarn, um die notwendigen Pakete und Abhängigkeiten herunterzuladen.
+4. Erstellen Sie eine Konfigurationsdatei, um die Verbindung zum Backend zu konfigurieren.
+5. Implementieren Sie die notwendigen Komponenten und Services, um die gewünschten Funktionalitäten zu ermöglichen.
+6. Verbinden Sie Ihren Code mit den APIs des Backends, um Daten zu erhalten oder zu aktualisieren.
+7. Implementieren Sie ein geeignetes Design, um ein ansprechendes User-Interface zu erstellen.
+8. Führen Sie Tests durch, um sicherzustellen, dass das Frontend ordnungsgemäß mit dem Backend interagiert und die gewünschten Ergebnisse liefert.
+9. Veröffentlichen Sie das Frontend und stellen Sie sicher, dass es zugänglich und benutzerfreundlich ist.
+10. Je nach Anwendungsfall kann es notwendig sein, den Code des Frontends zu optimieren, um eine bessere Leistung und Benutzerfreundlichkeit zu gewährleisten. Außerdem kann es von Vorteil sein, ein automatisiertes Deployment-Verfahren zu implementieren, um eine effektive und sichere Veröffentlichung des Frontends zu gewährleisten.
